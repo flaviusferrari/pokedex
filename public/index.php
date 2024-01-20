@@ -1,16 +1,6 @@
 <?php
 
-$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+// ini_set('display_errors', 1);
 
-echo 'URL: ' . $url;
-
-
-switch ($url) {
-    case '/':
-        echo 'está na barra';
-        break;
-    
-    default:
-        echo 'não encontrou';
-        break;
-}
+include '../Core/autoload.php';
+include '../Core/rotas.php';
