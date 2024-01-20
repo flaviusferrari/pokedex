@@ -1,28 +1,33 @@
-version: '3'
-
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: '3.1'
 services:
-  apache:
-    build:
-      dockerfile: php7-apache2-dockerfile
-      context: .
-    image: seu-usuario/php7-apache2-dockerfile
-    container_name: php7-apache2
-    restart: always
-    ports:
-      - '80:80'
-    volumes:
-      - ./html:/var/www/html
-    depends_on:
-      - mysqldb
-    links:
-      - mysqldb
+    mysql:
+        image: 'mysql:5.7'
+        working_dir: /application
+        volumes:
+            - '.:/application'
+        environment:
+            - MYSQL_ROOT_PASSWORD=q1w2e3r4
+            - MYSQL_DATABASE=pokedex
+            - MYSQL_USER=teste
+            - MYSQL_PASSWORD=q1w2e3r4
+        ports:
+            - '8002:3306'
 
-  mysqldb:
-    container_name: mysqlASW
-    image: mysql:5.7
-    restart: always
-    ports:
-      - '3307:3306'
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=pokedex
+    webserver:
+        image: 'nginx:alpine'
+        working_dir: /application
+        volumes:
+            - '.:/application'
+            - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+        ports:
+            - '8000:80'
+
+    php-fpm:
+        build: phpdocker/php-fpm
+        working_dir: /application
+        volumes:
+            - '.:/application'
+            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.2/fpm/conf.d/99-overrides.ini'
