@@ -1,15 +1,16 @@
 <?php
 
+use App\Controller\HomeController;
 use App\Controller\PessoaController;
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($url) {
     case '/':
-        echo 'está na barra';
+        HomeController::index();
         break;
 
-    case '/pessoa':
+    case '/pokemon':
         PessoaController::index();
         break;
     
