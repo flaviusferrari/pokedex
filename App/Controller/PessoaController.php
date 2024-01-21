@@ -12,9 +12,11 @@ class PessoaController
 
         $data = file_get_contents($url);
 
-        $pokemon = json_decode($data);
+        $dados = [
+            'pokemon' => json_decode($data)
+        ];
 
-        include '../App/View/pokemon/dados_pokemon.php';
+        view('pokemon/dados_pokemon', $dados);
     }
 
     public static function form()

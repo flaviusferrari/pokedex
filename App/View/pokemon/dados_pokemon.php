@@ -2,7 +2,7 @@ Dados do Pokemon desejado:
 <br>
 
 Nome: <?= $pokemon->name; ?><br>
-Foto: <?= $pokemon->front_default; ?><br>
+Foto: <?= $pokemon->sprites->front_default; ?><br>
 Peso: <?= $pokemon->weight; ?><br>
 Altura: <?= $pokemon->height; ?><br>
 Tipos: 
