@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\PokemonModel;
+
 class PokemonController
 {
     public static function index()
@@ -19,8 +21,18 @@ class PokemonController
         view('pokemon/dados_pokemon', $dados);
     }
 
-    public static function form()
+    public static function save()
     {
+        $model = new PokemonModel();
+        
+        $model->name = 'squirtle';
+        $model->front_default = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png';
+        $model->weight = '90';
+        $model->height = '5';
+        $model->types = 'water';
 
+        $model->save();
+
+        header("Location: /");
     }
 }

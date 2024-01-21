@@ -13,6 +13,10 @@ switch ($url) {
     case '/pokemon':
         PokemonController::index();
         break;
+
+    case '/pokemon/save':
+        PokemonController::save();
+        break;
     
     default:
         echo 'ERRO 404';
