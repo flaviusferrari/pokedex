@@ -18,7 +18,12 @@ class PokemonDAO
 
     public function select()
     {
-        
+        $sql = "SELECT * FROM pokemon";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
     public function insert(PokemonModel $model)
@@ -37,6 +42,6 @@ class PokemonDAO
 
     public function update()
     {
-
+                
     }
 }

@@ -14,4 +14,13 @@ class PokemonModel
 
         $dao->insert($this);
     }
+
+    public function getAllRows() 
+    {
+        $dao = new PokemonDAO();
+
+        $rows = $dao->select();
+
+        return $rows;
+    }
 }

@@ -35,4 +35,15 @@ class PokemonController
 
         header("Location: /");
     }
+
+    public static function list()
+    {
+        $model = new PokemonModel();
+
+        $dados = [
+            'pokemons' => $model->getAllRows()
+        ];
+
+        view('pokemon/listagem', $dados);
+    }
 }
