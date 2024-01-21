@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class PessoaController
+class PokemonController
 {
     public static function index()
     {

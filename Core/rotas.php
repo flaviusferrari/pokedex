@@ -1,7 +1,7 @@
 <?php
 
 use App\Controller\HomeController;
-use App\Controller\PessoaController;
+use App\Controller\PokemonController;
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -11,7 +11,7 @@ switch ($url) {
         break;
 
     case '/pokemon':
-        PessoaController::index();
+        PokemonController::index();
         break;
     
     default:
