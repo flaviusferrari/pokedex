@@ -23,3 +23,5 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<hr>
+<a href="/">Buscar</a>

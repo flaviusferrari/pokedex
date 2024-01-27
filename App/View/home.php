@@ -14,5 +14,7 @@
 
         <button type="submit">Enviar</button>
     </form>
+    <hr>
+    <a href="pokemon/list">Listar</a>
 </body>
 </html>
