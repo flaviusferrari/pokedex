@@ -18,3 +18,9 @@ function view($path, $data = null) {
 
     include "../App/View/{$path}.php";
 }
+
+function sanitize($name) {
+    $name = strtolower($name);
+
+    return trim($name);
+}

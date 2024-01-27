@@ -8,7 +8,7 @@ class PokemonController
 {
     public static function index()
     {
-        $pokemon_name = $_POST['pokemon'];
+        $pokemon_name = sanitize($_POST['pokemon']);
 
         $url = 'https://pokeapi.co/api/v2/pokemon/'.$pokemon_name;
 
