@@ -1,3 +1,5 @@
+<?php view('layout/header'); ?>
+
 <h1>listagem dos pokemons </h1>
 
 <table>
@@ -25,3 +27,5 @@
 </table>
 <hr>
 <a href="/">Buscar</a>
+
+<?php view('layout/footer'); ?>

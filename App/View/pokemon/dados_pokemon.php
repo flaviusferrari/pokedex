@@ -1,3 +1,5 @@
+<?php view('layout/header'); ?>
+
 Dados do Pokemon desejado: 
 <br>
 
@@ -20,3 +22,6 @@ Tipos:
     <input type="hidden" name="tipo" value="<?= $types; ?>">
     <button type="submit">Favoritar</button>
 </form>
+<a href="/">Home</a>
+
+<?php view('layout/footer'); ?>
