@@ -2,20 +2,17 @@
 
 namespace App\Controller;
 
+use App\Classes\PokemonApi;
 use App\Model\PokemonModel;
 
 class PokemonController
 {
     public static function index()
     {
-        $pokemon_name = sanitize($_POST['pokemon']);
-
-        $url = 'https://pokeapi.co/api/v2/pokemon/'.$pokemon_name;
-
-        $data = file_get_contents($url);
+        $pokemon = new PokemonApi();
 
         $dados = [
-            'pokemon' => json_decode($data)
+            'pokemon' => $pokemon->getPokemon($_POST['pokemon'])
         ];
 
         view('pokemon/dados_pokemon', $dados);
