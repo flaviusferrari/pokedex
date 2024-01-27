@@ -25,11 +25,11 @@ class PokemonController
     {
         $model = new PokemonModel();
         
-        $model->name = 'squirtle';
-        $model->front_default = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png';
-        $model->weight = '90';
-        $model->height = '5';
-        $model->types = 'water';
+        $model->name = $_POST['nome'];
+        $model->front_default = $_POST['foto'];
+        $model->weight = $_POST['peso'];
+        $model->height = $_POST['altura'];
+        $model->types = $_POST['tipo'];
 
         $model->save();
 
