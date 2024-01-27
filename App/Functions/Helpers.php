@@ -9,9 +9,11 @@ function dd($dump) {
 }
 
 
-function view($path, $data) {
-    foreach ($data as $key => $value) {
-        ${$key} = $value;
+function view($path, $data = null) {
+    if (!empty($data)) {
+        foreach ($data as $key => $value) {
+            ${$key} = $value;
+        }
     }
 
     include "../App/View/{$path}.php";
