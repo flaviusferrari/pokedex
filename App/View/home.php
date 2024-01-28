@@ -5,7 +5,13 @@
 <form action="/pokemon" method="post">
     <div class="form-group">
         <label for="nome">Nome do Pokemon</label>
-        <input type="text" class="form-control" name="pokemon">        
+        <input type="text" class="form-control" name="pokemon"> 
+        <?php if(isset($error)): ?> 
+            <br>
+            <div class="alert alert-danger" role="alert">
+                <?= $message; ?>            
+            </div>      
+        <?php endif; ?>
     </div>
 
     <button type="submit" class="btn btn-primary">Enviar</button>

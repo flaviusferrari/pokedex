@@ -14,6 +14,14 @@ class PokemonApi
 
         $data = file_get_contents($url);
 
+        if (empty($data)) {
+            $data = [
+                'error' => '404',
+                'message' => 'Pokemon não encontrado'
+            ];
+            return  (object)$data;
+        }
+
         return json_decode($data);
     }
 

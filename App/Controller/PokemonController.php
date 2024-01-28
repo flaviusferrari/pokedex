@@ -14,9 +14,15 @@ class PokemonController
         $poke = $model->getPokemonByName();
 
         $pokemon = new PokemonApi();
+        $pokemon_result = $pokemon->getPokemon($_POST['pokemon']);
+
+        if ($pokemon_result->error == 404) {
+            view('home', $pokemon_result);
+            exit;
+        }
 
         $dados = [
-            'pokemon' => $pokemon->getPokemon($_POST['pokemon']),
+            'pokemon' => $pokemon_result,
             'favorito' => (empty($poke))? true:false,
         ];
 
