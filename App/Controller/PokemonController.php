@@ -26,7 +26,7 @@ class PokemonController
         $model->front_default = $_POST['foto'];
         $model->weight = $_POST['peso'];
         $model->height = $_POST['altura'];
-        $model->types = $_POST['tipo'];
+        $model->types = json_encode($_POST['tipo']);
 
         $model->save();
 
