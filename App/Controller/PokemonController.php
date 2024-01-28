@@ -41,7 +41,7 @@ class PokemonController
 
         $model->save();
 
-        header("Location: /");
+        header("Location: /pokemon/list");
     }
 
     public static function list()

@@ -42,6 +42,8 @@
             <div class="row">
                 <?php if($favorito): ?>
                     <button class="btn btn-primary" type="submit">Favoritar</button>
+                <?php else: ?>
+                    <a class="btn btn-primary" href="/pokemon/list">Listar</a>
                 <?php endif; ?>
                 &nbsp;                
                 <a class="btn btn-success" href="/">Home</a>
