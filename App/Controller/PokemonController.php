@@ -9,10 +9,15 @@ class PokemonController
 {
     public static function index()
     {
+        $model = new PokemonModel();
+        $model->name = $_POST['pokemon'];
+        $poke = $model->getPokemonByName();
+
         $pokemon = new PokemonApi();
 
         $dados = [
-            'pokemon' => $pokemon->getPokemon($_POST['pokemon'])
+            'pokemon' => $pokemon->getPokemon($_POST['pokemon']),
+            'favorito' => (empty($poke))? true:false,
         ];
 
         view('pokemon/dados_pokemon', $dados);

@@ -23,4 +23,13 @@ class PokemonModel
 
         return $rows;
     }
+
+    public function getPokemonByName()
+    {
+        $dao = new PokemonDAO();
+
+        $rows = $dao->where($this);
+
+        return $rows;
+    }
 }

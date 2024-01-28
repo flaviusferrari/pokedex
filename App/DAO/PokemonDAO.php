@@ -40,8 +40,14 @@ class PokemonDAO
         $stmt->execute();
     }
 
-    public function update()
+    public function where(PokemonModel $model)
     {
-                
+        $sql = "SELECT * FROM pokemon WHERE name = ?";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(1, $model->name);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 }

@@ -40,7 +40,10 @@
             <?php endforeach; ?>
             </div>
             <div class="row">
-                <button class="btn btn-primary" type="submit">Favoritar</button>&nbsp;
+                <?php if($favorito): ?>
+                    <button class="btn btn-primary" type="submit">Favoritar</button>
+                <?php endif; ?>
+                &nbsp;                
                 <a class="btn btn-success" href="/">Home</a>
             </div>
         </div>
