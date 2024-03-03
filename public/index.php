@@ -4,4 +4,6 @@
 
 include '../Core/autoload.php';
 include '../App/Functions/Helpers.php';
-include '../Core/rotas.php';
+include '../Core/routes.php';
+
+router();
