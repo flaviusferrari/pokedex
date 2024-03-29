@@ -25,8 +25,8 @@ class PokemonController
             return view('pokemon/dados_pokemon', $dados);
         }
 
-        $pokemon = new PokemonApi();
-        $pokemon_result = $pokemon->getPokemon($_POST['pokemon']);
+        $pokemon = new PokemonApi($_POST['pokemon']);
+        $pokemon_result = $pokemon->getPokemon();
 
         if (isset($pokemon_result->error)) {
             return view('home', $pokemon_result);

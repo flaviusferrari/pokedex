@@ -5,12 +5,16 @@ namespace App\Classes;
 class PokemonApi 
 {
     private $base = 'https://pokeapi.co/api/v2/';
+    private $pokemon;
 
-    public function getPokemon($pokemon_name)
+    public function __construct($pokemon_name)
     {
-        $pokemon = $this->sanitize($pokemon_name);
+        $this->pokemon = $this->sanitize($pokemon_name);
+    }
 
-        $url = $this->base . 'pokemon/'. $pokemon;
+    public function getPokemon()
+    {
+        $url = $this->base . 'pokemon/'. $this->pokemon;
 
         $data = file_get_contents($url);
 
