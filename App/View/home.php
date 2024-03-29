@@ -14,7 +14,7 @@
         <?php endif; ?>
     </div>
 
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" class="btn btn-primary">Buscar</button>
     <a class="btn btn-success" href="pokemon/list">Listar</a>
 </form>
 <hr>

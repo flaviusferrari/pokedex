@@ -30,6 +30,6 @@ class PokemonModel
 
         $rows = $dao->where($this);
 
-        return $rows;
+        return $rows[0];
     }
 }

@@ -5,8 +5,8 @@
 <form action="/pokemon/save" method="post">
     <div class="row">   
         <div class="col-1">
-            <img src="<?= $pokemon->sprites->front_default; ?>" alt="">
-            <input type="hidden" name="foto" value="<?= $pokemon->sprites->front_default; ?>">
+            <img src="<?= ($favorito)? $pokemon->sprites->front_default : $pokemon->front_default; ?>" alt="">
+            <input type="hidden" name="foto" value="<?= ($favorito)? $pokemon->sprites->front_default : $pokemon->front_default; ?>">
         </div>
         <div class="col-11">
             <div class="row">

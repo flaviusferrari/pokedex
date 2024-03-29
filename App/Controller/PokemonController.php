@@ -7,16 +7,23 @@ use App\Model\PokemonModel;
 
 class PokemonController
 {
-    public static function index()
+    public function index()
     {
         if (empty($_POST['pokemon'])) {
             $error = '301';
             return view('home', compact('error'));
         }
 
-        $model = new PokemonModel();
-        $model->name = $_POST['pokemon'];
-        $poke = $model->getPokemonByName();
+        $pokemon = $this->findPokemon($_POST['pokemon']);
+
+        if (!empty($pokemon)) {
+            $dados = [
+                'pokemon' => $pokemon,
+                'favorito' => false,
+            ];
+
+            return view('pokemon/dados_pokemon', $dados);
+        }
 
         $pokemon = new PokemonApi();
         $pokemon_result = $pokemon->getPokemon($_POST['pokemon']);
@@ -27,7 +34,7 @@ class PokemonController
 
         $dados = [
             'pokemon' => $pokemon_result,
-            'favorito' => (empty($poke))? true:false,
+            'favorito' => true,
         ];
 
         view('pokemon/dados_pokemon', $dados);
@@ -57,5 +64,14 @@ class PokemonController
         ];
 
         view('pokemon/listagem', $dados);
+    }
+
+    private function findPokemon($pokemon_name)
+    {
+        $model = new PokemonModel();
+        $model->name = $pokemon_name;
+        $poke = $model->getPokemonByName();
+
+        return $poke;
     }
 }
