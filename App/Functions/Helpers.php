@@ -8,7 +8,6 @@ function dd($dump) {
     die();
 }
 
-
 function view($path, $data = null) {
     if (!empty($data)) {
         foreach ($data as $key => $value) {
@@ -17,4 +16,10 @@ function view($path, $data = null) {
     }
 
     include "../App/View/{$path}.php";
+}
+
+function errorMessage($cod) {
+    $messages = require '../App/Functions/ErrorList.php';
+    
+    return $messages[$cod];
 }
