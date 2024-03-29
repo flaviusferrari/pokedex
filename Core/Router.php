@@ -35,8 +35,6 @@ class Router {
     }
 
     protected function handleNotFound() {
-        http_response_code(404);
-        echo 'Error 404: Not Found';
-        exit;
+        Error::pageNotFound();
     }
 }
