@@ -16,8 +16,7 @@ class PokemonApi
 
         if (empty($data)) {
             $data = [
-                'error' => '404',
-                'message' => 'Pokemon não encontrado'
+                'error' => '300'
             ];
             return  (object)$data;
         }

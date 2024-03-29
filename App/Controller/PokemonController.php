@@ -9,6 +9,11 @@ class PokemonController
 {
     public static function index()
     {
+        if (empty($_POST['pokemon'])) {
+            $error = '301';
+            return view('home', compact('error'));
+        }
+
         $model = new PokemonModel();
         $model->name = $_POST['pokemon'];
         $poke = $model->getPokemonByName();
@@ -16,9 +21,8 @@ class PokemonController
         $pokemon = new PokemonApi();
         $pokemon_result = $pokemon->getPokemon($_POST['pokemon']);
 
-        if ($pokemon_result->error == 404) {
-            view('home', $pokemon_result);
-            exit;
+        if (isset($pokemon_result->error)) {
+            return view('home', $pokemon_result);
         }
 
         $dados = [

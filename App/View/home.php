@@ -9,7 +9,7 @@
         <?php if(isset($error)): ?> 
             <br>
             <div class="alert alert-danger" role="alert">
-                <?= $message; ?>            
+                <?= errorMessage($error); ?>            
             </div>      
         <?php endif; ?>
     </div>
