@@ -4,8 +4,9 @@ namespace App\Model;
 
 use App\DAO\PokemonDAO;
 
-class PokemonModel 
+class PokemonModel extends Model
 {
+    public $table = 'pokemon';
     public $name, $front_default, $weight, $height, $types;
 
     public function save()
@@ -13,23 +14,5 @@ class PokemonModel
         $dao = new PokemonDAO();
 
         $dao->insert($this);
-    }
-
-    public function getAllRows() 
-    {
-        $dao = new PokemonDAO();
-
-        $rows = $dao->select();
-
-        return $rows;
-    }
-
-    public function getPokemonByName()
-    {
-        $dao = new PokemonDAO();
-
-        $rows = $dao->where($this);
-
-        return $rows[0];
-    }
+    }    
 }

@@ -57,10 +57,10 @@ class PokemonController
 
     public static function list()
     {
-        $model = new PokemonModel();
+        $pokemons = new PokemonModel();
 
         $dados = [
-            'pokemons' => $model->getAllRows()
+            'pokemons' => $pokemons->all()
         ];
 
         view('pokemon/listagem', $dados);
@@ -68,9 +68,8 @@ class PokemonController
 
     private function findPokemon($pokemon_name)
     {
-        $model = new PokemonModel();
-        $model->name = $pokemon_name;
-        $poke = $model->getPokemonByName();
+        $pokemon = new PokemonModel();
+        $poke = $pokemon->find('name', $pokemon_name);
 
         return $poke;
     }
